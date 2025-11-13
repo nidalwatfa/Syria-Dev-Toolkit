@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>قارئ JSON</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 16px;
+    }
+    input {
+      margin-bottom: 12px;
+    }
+    pre {
+      background: #111827;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <h1>📂 قارئ JSON</h1>
+  <input type="file" id="fileInput" accept=".json">
+  <pre id="output">اختر ملف JSON لعرض محتواه هنا...</pre>
+
+  <script>
+    document.getElementById('fileInput').addEventListener
