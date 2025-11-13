@@ -1,27 +1,63 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>ملاحظات أوفلاين</title>
+  <title>📝 الملاحظات</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    textarea {
+      width: 90%;
+      height: 200px;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      margin: 5px;
+      cursor: pointer;
+    }
+    #saveBtn { background: #22c55e; color: white; }
+    #clearBtn { background: #ef4444; color: white; }
+    #exportNotesBtn { background: #3b82f6; color: white; }
+  </style>
 </head>
 <body>
-  <h1>📒 ملاحظاتي</h1>
-  <textarea id="note" rows="10" cols="40" placeholder="اكتب ملاحظتك هنا..."></textarea>
+  <h1 id="pageTitle">📝 الملاحظات</h1>
+
+  <textarea id="notesArea" placeholder="اكتب ملاحظاتك هنا..."></textarea>
   <br>
-  <button onclick="saveNote()">حفظ</button>
-  <p id="status"></p>
+  <button id="saveBtn">💾 حفظ الملاحظات</button>
+  <button id="clearBtn">🗑️ مسح الكل</button>
+  <button id="exportNotesBtn">⬇️ تصدير الملاحظات</button>
 
   <script>
-    function saveNote() {
-      const note = document.getElementById('note').value;
-      localStorage.setItem('myNote', note);
-      document.getElementById('status').innerText = "✅ تم الحفظ محليًا";
-    }
+    const notesArea = document.getElementById("notesArea");
 
+    // تحميل الملاحظات عند فتح الصفحة
     window.onload = () => {
-      const saved = localStorage.getItem('myNote');
-      if (saved) document.getElementById('note').value = saved;
+      const savedNotes = localStorage.getItem("notes");
+      if (savedNotes) notesArea.value = savedNotes;
     };
-  </script>
-</body>
-</html>
+
+    // حفظ الملاحظات
+    document.getElementById("saveBtn").addEventListener("click", () => {
+      localStorage.setItem("notes", notesArea.value);
+      alert("✅ تم حفظ الملاحظات بنجاح!");
+    });
+
+    // مسح جميع الملاحظات
+    document.getElementById("clearBtn").addEventListener("click", () => {
+      localStorage.removeItem("notes
