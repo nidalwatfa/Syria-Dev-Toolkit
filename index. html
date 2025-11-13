@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Syria Dev Toolkit</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      margin: 0;
+      padding: 0;
+    }
+    header, main, footer {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    header h1 {
+      margin: 0 0 8px;
+    }
+    section {
+      background: #111827;
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+    button {
+      background: #22c55e;
+      color: #052e1b;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>مجموعة أدوات التنمية في سوريا</h1>
+    <p>أدوات خفيفة، تعمل بدون إنترنت، لمساعدة المطورين.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>الوحدات المتاحة</h2>
+      <ul>
+        <li>📒 ملاحظات أوفلاين</li>
+        <li>✅ إدارة مهام</li>
+        <li>📂 قارئ JSON</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>وضع عدم الاتصال</h2>
+      <p>تعمل الأداة أوفلاين عبر Service Worker.</p>
+      <button>تثبيت التطبيق كـ PWA</button>
+    </section>
+  </main>
+
+  <footer>
+    <small>MIT License — Nidal Watfa</small>
+  </footer>
+</body>
+</html>
