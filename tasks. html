@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>إدارة المهام</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 16px;
+    }
+    input, button {
+      padding: 8px;
+      margin: 4px;
+      border-radius: 6px;
+      border: none;
+    }
+    button {
+      background: #22c55e;
+      color: #052e1b;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #111827;
+      padding: 10px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    li.done {
+      text-decoration: line-through;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+  <h1>✅ إدارة المهام</h1>
+  <input id="taskInput" type="text" placeholder="أدخل مهمة جديدة">
+  <button onclick="addTask()">إضافة</button>
+  <ul id="taskList"></ul>
+
+  <script>
+    function loadTasks() {
+      const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+      const list = document.getElementById('taskList');
+      list.innerHTML = '';
+      tasks.forEach((task, index) => {
+        const li = document.createElement('li');
+        li.textContent = task.text;
+        if (task.done) li.classList.add('done');
+        const toggleBtn = document.createElement('button');
+        toggleBtn.textContent = task.done ? '↩️' : '✔️';
+        toggleBtn.onclick = () => toggleTask(index);
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = '🗑️';
+        deleteBtn.onclick = () => deleteTask(index);
+        li.appendChild(toggleBtn);
+        li.appendChild(deleteBtn);
+        list.appendChild(li);
+      });
+    }
+
+    function addTask() {
+      const input = document.getElementById('taskInput');
+      const text = input.value.trim();
+      if (!text) return;
+      const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+      tasks.push({ text, done: false });
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      input.value = '';
+      loadTasks();
+    }
+
+    function toggleTask(index) {
+      const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+      tasks[index].done = !tasks[index].done;
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      loadTasks();
+    }
+
+    function deleteTask(index) {
+      const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+      tasks.splice(index, 1);
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      loadTasks();
+    }
+
+    window.onload = loadTasks;
+  </script>
+</body>
+</html>
