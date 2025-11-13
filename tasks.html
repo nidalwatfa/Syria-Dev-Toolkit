@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>✅ إدارة المهام</title>
+  <title>📝 الملاحظات</title>
   <link rel="manifest" href="manifest.json">
   <style>
     body {
@@ -13,82 +14,71 @@
       padding: 20px;
       text-align: center;
     }
-    h1 { margin-bottom: 20px; }
-    input {
+    textarea {
+      width: 90%;
+      height: 200px;
       padding: 10px;
-      border-radius: 6px;
+      border-radius: 8px;
       border: none;
-      width: 60%;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
     button {
       padding: 10px 20px;
       border: none;
       border-radius: 6px;
-      background: #22c55e;
-      color: white;
+      margin: 5px;
       cursor: pointer;
     }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 20px;
-    }
-    li {
-      background: #1e293b;
-      margin: 5px auto;
-      padding: 10px;
-      border-radius: 6px;
-      width: 60%;
-    }
-    select {
-      margin-top: 20px;
-      padding: 8px;
-      border-radius: 6px;
-    }
+    #saveBtn { background: #22c55e; color: white; }
+    #clearBtn { background: #ef4444; color: white; }
+    #exportNotesBtn { background: #3b82f6; color: white; }
   </style>
 </head>
 <body>
-  <h1 id="pageTitle">✅ إدارة المهام</h1>
+  <h1 id="pageTitle">📝 الملاحظات</h1>
 
-  <input id="taskInput" type="text" placeholder="أدخل مهمة جديدة">
-  <button id="addTaskBtn">إضافة مهمة</button>
-
-  <ul id="taskList"></ul>
-
-  <!-- اختيار اللغة -->
-  <select onchange="loadTranslations(this.value)">
-    <option value="ar">العربية</option>
-    <option value="ku">Kurdî</option>
-    <option value="en">English</option>
-  </select>
+  <textarea id="notesArea" placeholder="اكتب ملاحظاتك هنا..."></textarea>
+  <br>
+  <button id="saveBtn">💾 حفظ الملاحظات</button>
+  <button id="clearBtn">🗑️ مسح الكل</button>
+  <button id="exportNotesBtn">⬇️ تصدير الملاحظات</button>
 
   <script>
-    async function loadTranslations(lang) {
-      const res = await fetch("translations.json");
-      const data = await res.json();
-      const t = data[lang] || data["ar"]; // افتراضي عربي
+    const notesArea = document.getElementById("notesArea");
 
-      // تغيير النصوص في صفحة المهام
-      document.getElementById("pageTitle").textContent = t.title_tasks;
-      document.getElementById("taskInput").placeholder = t.new_task;
-      document.getElementById("addTaskBtn").textContent = t.add_task;
-    }
+    // تحميل الملاحظات عند فتح الصفحة
+    window.onload = () => {
+      const savedNotes = localStorage.getItem("notes");
+      if (savedNotes) notesArea.value = savedNotes;
+    };
 
-    // افتراضي: اللغة العربية
-    loadTranslations("ar");
+    // حفظ الملاحظات
+    document.getElementById("saveBtn").addEventListener("click", () => {
+      localStorage.setItem("notes", notesArea.value);
+      alert("✅ تم حفظ الملاحظات بنجاح!");
+    });
 
-    // منطق إضافة المهام
-    document.getElementById("addTaskBtn").addEventListener("click", () => {
-      const taskInput = document.getElementById("taskInput");
-      const taskList = document.getElementById("taskList");
+    // مسح جميع الملاحظات
+    document.getElementById("clearBtn").addEventListener("click", () => {
+      localStorage.removeItem("notes");
+      notesArea.value = "";
+      alert("🗑️ تم مسح جميع الملاحظات!");
+    });
 
-      if (taskInput.value.trim() !== "") {
-        const li = document.createElement("li");
-        li.textContent = taskInput.value;
-        taskList.appendChild(li);
-        taskInput.value = "";
-      }
+    // تصدير الملاحظات إلى ملف JSON
+    document.getElementById("exportNotesBtn").addEventListener("click", () => {
+      const notes = localStorage.getItem("notes") || "";
+      const data = { notes: notes };
+
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "notes_backup.json";
+      a.click();
+
+      URL.revokeObjectURL(url);
     });
   </script>
 </body>
