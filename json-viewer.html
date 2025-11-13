@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>📂 عارض JSON</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 { margin-bottom: 20px; }
+    textarea {
+      width: 90%;
+      height: 200px;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 20px;
+    }
+    pre {
+      text-align: left;
+      background: #1e293b;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      color: #f8fafc;
+    }
+    select {
+      margin-top: 20px;
+      padding: 8px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="pageTitle">📂 عارض JSON</h1>
+
+  <textarea id="jsonInput" placeholder="ألصق بيانات JSON هنا..."></textarea>
+  <button id="parseBtn">عرض البيانات</button>
+
+  <pre id="output"></pre>
+
+  <!-- اختيار اللغة -->
+  <select onchange="loadTranslations(this.value)">
+    <option value="ar">العربية</option>
+    <option value="ku">Kurdî</option>
+    <option value="en">English</option>
+  </select>
+
+  <script>
+    async function loadTranslations(lang) {
+      const res = await fetch("translations.json");
+      const data = await res.json();
+      const t = data[lang] || data["ar"]; // افتراضي عربي
+
+      // تغيير النصوص في صفحة عارض JSON
+      document.getElementById("pageTitle").textContent = t.title_json;
+      document.getElementById("jsonInput").placeholder = t.json_placeholder;
+      document.getElementById("parseBtn").textContent = t.json_parse;
+    }
+
+    // افتراضي: اللغة العربية
+    loadTranslations("ar");
+
+    // منطق عرض JSON
+    document.getElementById("parseBtn").addEventListener("click", () => {
+      const input = document.getElementById("jsonInput").value;
+      const output = document.getElementById("output");
+      try {
+        const parsed = JSON.parse(input);
+        output.textContent = JSON.stringify(parsed, null, 2);
+      } catch (e) {
+        output.textContent = "⚠️ صيغة JSON غير صحيحة";
+      }
+    });
+  </script>
+</body>
+</html>
