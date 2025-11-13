@@ -1,0 +1,7 @@
+Syria-Dev-Toolkit/
+├─ android/         # تطبيقات وأدوات أندرويد (Kotlin)
+├─ api/             # خدمات ASP.NET Core
+├─ examples/        # أمثلة عملية (Python أو JavaScript كبداية)
+├─ docs/            # توثيق إضافي وصور
+├─ scripts/         # سكربتات مساعدة (بناء/نشر)
+└─ assets/          # الأيقونات والوسوم والصور
