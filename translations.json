@@ -1,0 +1,26 @@
+{
+  "ar": {
+    "title_notes": "📝 الملاحظات",
+    "title_tasks": "✅ إدارة المهام",
+    "title_json": "📂 قارئ JSON",
+    "add_task": "إضافة مهمة",
+    "new_task": "أدخل مهمة جديدة",
+    "json_placeholder": "اختر ملف JSON لعرض محتواه هنا..."
+  },
+  "ku": {
+    "title_notes": "📝 Notên xwe binivîse",
+    "title_tasks": "✅ Rêvebirina Karên",
+    "title_json": "📂 Pelê JSON bixwîne",
+    "add_task": "Karê nû zêde bike",
+    "new_task": "Karê nû binivîse",
+    "json_placeholder": "Pelê JSON hilbijêre û naveroka wê bibîne..."
+  },
+  "en": {
+    "title_notes": "📝 Notes",
+    "title_tasks": "✅ Task Manager",
+    "title_json": "📂 JSON Viewer",
+    "add_task": "Add Task",
+    "new_task": "Enter a new task",
+    "json_placeholder": "Choose a JSON file to display its content..."
+  }
+}
