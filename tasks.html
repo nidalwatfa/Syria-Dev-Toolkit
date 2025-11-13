@@ -2,7 +2,8 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>إدارة المهام</title>
+  <title>✅ إدارة المهام</title>
+  <link rel="manifest" href="manifest.json">
   <style>
     body {
       font-family: system-ui, sans-serif;
@@ -10,94 +11,85 @@
       color: #e5e7eb;
       margin: 0;
       padding: 20px;
+      text-align: center;
     }
-    h1 {
-      margin-bottom: 16px;
-    }
-    input, button {
-      padding: 8px;
-      margin: 4px;
+    h1 { margin-bottom: 20px; }
+    input {
+      padding: 10px;
       border-radius: 6px;
       border: none;
+      width: 60%;
+      margin-bottom: 10px;
     }
     button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
       background: #22c55e;
-      color: #052e1b;
-      font-weight: bold;
+      color: white;
       cursor: pointer;
     }
     ul {
       list-style: none;
       padding: 0;
+      margin-top: 20px;
     }
     li {
-      background: #111827;
+      background: #1e293b;
+      margin: 5px auto;
       padding: 10px;
-      margin-bottom: 8px;
-      border-radius: 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      border-radius: 6px;
+      width: 60%;
     }
-    li.done {
-      text-decoration: line-through;
-      color: #9ca3af;
+    select {
+      margin-top: 20px;
+      padding: 8px;
+      border-radius: 6px;
     }
   </style>
 </head>
 <body>
-  <h1>✅ إدارة المهام</h1>
+  <h1 id="pageTitle">✅ إدارة المهام</h1>
+
   <input id="taskInput" type="text" placeholder="أدخل مهمة جديدة">
-  <button onclick="addTask()">إضافة</button>
+  <button id="addTaskBtn">إضافة مهمة</button>
+
   <ul id="taskList"></ul>
 
+  <!-- اختيار اللغة -->
+  <select onchange="loadTranslations(this.value)">
+    <option value="ar">العربية</option>
+    <option value="ku">Kurdî</option>
+    <option value="en">English</option>
+  </select>
+
   <script>
-    function loadTasks() {
-      const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-      const list = document.getElementById('taskList');
-      list.innerHTML = '';
-      tasks.forEach((task, index) => {
-        const li = document.createElement('li');
-        li.textContent = task.text;
-        if (task.done) li.classList.add('done');
-        const toggleBtn = document.createElement('button');
-        toggleBtn.textContent = task.done ? '↩️' : '✔️';
-        toggleBtn.onclick = () => toggleTask(index);
-        const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = '🗑️';
-        deleteBtn.onclick = () => deleteTask(index);
-        li.appendChild(toggleBtn);
-        li.appendChild(deleteBtn);
-        list.appendChild(li);
-      });
+    async function loadTranslations(lang) {
+      const res = await fetch("translations.json");
+      const data = await res.json();
+      const t = data[lang] || data["ar"]; // افتراضي عربي
+
+      // تغيير النصوص في صفحة المهام
+      document.getElementById("pageTitle").textContent = t.title_tasks;
+      document.getElementById("taskInput").placeholder = t.new_task;
+      document.getElementById("addTaskBtn").textContent = t.add_task;
     }
 
-    function addTask() {
-      const input = document.getElementById('taskInput');
-      const text = input.value.trim();
-      if (!text) return;
-      const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-      tasks.push({ text, done: false });
-      localStorage.setItem('tasks', JSON.stringify(tasks));
-      input.value = '';
-      loadTasks();
-    }
+    // افتراضي: اللغة العربية
+    loadTranslations("ar");
 
-    function toggleTask(index) {
-      const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-      tasks[index].done = !tasks[index].done;
-      localStorage.setItem('tasks', JSON.stringify(tasks));
-      loadTasks();
-    }
+    // منطق إضافة المهام
+    document.getElementById("addTaskBtn").addEventListener("click", () => {
+      const taskInput = document.getElementById("taskInput");
+      const taskList = document.getElementById("taskList");
 
-    function deleteTask(index) {
-      const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-      tasks.splice(index, 1);
-      localStorage.setItem('tasks', JSON.stringify(tasks));
-      loadTasks();
-    }
-
-    window.onload = loadTasks;
+      if (taskInput.value.trim() !== "") {
+        const li = document.createElement("li");
+        li.textContent = taskInput.value;
+        taskList.appendChild(li);
+        taskInput.value = "";
+      }
+    });
   </script>
 </body>
 </html>
