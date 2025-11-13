@@ -22,6 +22,14 @@
       border: none;
       margin-bottom: 20px;
     }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #22c55e;
+      color: white;
+      cursor: pointer;
+    }
     select {
       margin-top: 20px;
       padding: 8px;
@@ -33,6 +41,8 @@
   <h1 id="pageTitle">📝 الملاحظات</h1>
 
   <textarea id="notesArea" placeholder="اكتب ملاحظاتك هنا..."></textarea>
+  <br>
+  <button id="saveBtn">💾 حفظ الملاحظات</button>
 
   <!-- اختيار اللغة -->
   <select onchange="loadTranslations(this.value)">
@@ -42,18 +52,34 @@
   </select>
 
   <script>
+    // تحميل الترجمة
     async function loadTranslations(lang) {
       const res = await fetch("translations.json");
       const data = await res.json();
       const t = data[lang] || data["ar"]; // افتراضي عربي
 
-      // تغيير النصوص في صفحة الملاحظات
       document.getElementById("pageTitle").textContent = t.title_notes;
       document.getElementById("notesArea").placeholder = t.title_notes;
+      document.getElementById("saveBtn").textContent = t.save_notes;
     }
 
-    // افتراضي: اللغة العربية
     loadTranslations("ar");
+
+    const notesArea = document.getElementById("notesArea");
+
+    // تحميل الملاحظات من LocalStorage عند فتح الصفحة
+    window.onload = () => {
+      const savedNotes = localStorage.getItem("notes");
+      if (savedNotes) {
+        notesArea.value = savedNotes;
+      }
+    };
+
+    // حفظ الملاحظات في LocalStorage
+    document.getElementById("saveBtn").addEventListener("click", () => {
+      localStorage.setItem("notes", notesArea.value);
+      alert("✅ تم حفظ الملاحظات بنجاح!");
+    });
   </script>
 </body>
 </html>
