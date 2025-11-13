@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>ملاحظات أوفلاين</title>
+</head>
+<body>
+  <h1>📒 ملاحظاتي</h1>
+  <textarea id="note" rows="10" cols="40" placeholder="اكتب ملاحظتك هنا..."></textarea>
+  <br>
+  <button onclick="saveNote()">حفظ</button>
+  <p id="status"></p>
+
+  <script>
+    function saveNote() {
+      const note = document.getElementById('note').value;
+      localStorage.setItem('myNote', note);
+      document.getElementById('status').innerText = "✅ تم الحفظ محليًا";
+    }
+
+    window.onload = () => {
+      const saved = localStorage.getItem('myNote');
+      if (saved) document.getElementById('note').value = saved;
+    };
+  </script>
+</body>
+</html>
