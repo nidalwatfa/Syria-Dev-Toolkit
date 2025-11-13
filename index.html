@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -67,6 +68,13 @@
 
     // تحميل اللغة الافتراضية عند فتح الصفحة
     loadTranslations("ar");
+
+    // تسجيل Service Worker لتفعيل PWA
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js")
+        .then(() => console.log("✅ Service Worker مسجل بنجاح"))
+        .catch((err) => console.error("⚠️ فشل التسجيل:", err));
+    }
   </script>
 </body>
 </html>
