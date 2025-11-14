@@ -7,9 +7,22 @@
 </head>
 <body>
   <h1 id="welcome"></h1>
-  <button onclick="changeLanguage('ar')">العربية</button>
-  <button onclick="changeLanguage('en')">English</button>
-  <button onclick="changeLanguage('ku')">Kurdî</button>
+  
+  <p>
+    <button id="login"></button>
+    <button id="logout"></button>
+    <button id="save"></button>
+    <button id="cancel"></button>
+    <button id="exit"></button>
+    <button id="settings"></button>
+    <button id="language"></button>
+  </p>
+
+  <p>
+    <button onclick="changeLanguage('ar')">العربية</button>
+    <button onclick="changeLanguage('en')">English</button>
+    <button onclick="changeLanguage('ku')">Kurdî</button>
+  </p>
 
   <script>
     // الموارد (النصوص المترجمة)
@@ -17,19 +30,37 @@
       ar: {
         translation: {
           welcome_message: "مرحباً بك!",
-          settings: "الإعدادات"
+          login: "تسجيل الدخول",
+          logout: "تسجيل الخروج",
+          settings: "الإعدادات",
+          language: "اللغة",
+          save: "حفظ",
+          cancel: "إلغاء",
+          exit: "خروج"
         }
       },
       en: {
         translation: {
           welcome_message: "Welcome!",
-          settings: "Settings"
+          login: "Login",
+          logout: "Logout",
+          settings: "Settings",
+          language: "Language",
+          save: "Save",
+          cancel: "Cancel",
+          exit: "Exit"
         }
       },
       ku: {
         translation: {
           welcome_message: "Slav û bi xêr hatî!",
-          settings: "Mîheng"
+          login: "Têkeve",
+          logout: "Derkeve",
+          settings: "Mîheng",
+          language: "Ziman",
+          save: "Tomar bike",
+          cancel: "Betal bike",
+          exit: "Derkeve"
         }
       }
     };
@@ -45,6 +76,13 @@
     // دالة لتحديث النصوص حسب اللغة
     function updateContent() {
       document.getElementById('welcome').innerText = i18next.t('welcome_message');
+      document.getElementById('login').innerText = i18next.t('login');
+      document.getElementById('logout').innerText = i18next.t('logout');
+      document.getElementById('save').innerText = i18next.t('save');
+      document.getElementById('cancel').innerText = i18next.t('cancel');
+      document.getElementById('exit').innerText = i18next.t('exit');
+      document.getElementById('settings').innerText = i18next.t('settings');
+      document.getElementById('language').innerText = i18next.t('language');
     }
 
     // دالة لتغيير اللغة
