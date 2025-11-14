@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>i18n Example</title>
+  <title>i18n Example with Dropdown</title>
   <script src="https://unpkg.com/i18next@21.6.16/dist/umd/i18next.min.js"></script>
 </head>
 <body>
@@ -19,9 +19,12 @@
   </p>
 
   <p>
-    <button onclick="changeLanguage('ar')">العربية</button>
-    <button onclick="changeLanguage('en')">English</button>
-    <button onclick="changeLanguage('ku')">Kurdî</button>
+    <label for="langSelect">🌐 اختر اللغة:</label>
+    <select id="langSelect" onchange="changeLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="ar">العربية</option>
+      <option value="ku">Kurdî</option>
+    </select>
   </p>
 
   <script>
