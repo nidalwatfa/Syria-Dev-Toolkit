@@ -1,34 +1,15 @@
-# Syria Dev Toolkit (SDT)
+# Syria Dev Toolkit
 
-🛠️ مجموعة أدوات مفتوحة المصدر لمساعدة المطورين على بناء تطبيقات آمنة، سريعة، وتعمل بلا إنترنت، مع تركيز على احتياجات المجتمع التقني في سوريا.
+🛠️ **Syria Dev Toolkit** هو مشروع مفتوح المصدر يهدف إلى توفير أدوات عملية للمطورين السوريين والعرب، مع التركيز على البساطة، التنظيم، ودعم العمل بلا إنترنت.
 
-![SDT Icon](./assets/icon.png)
+---
 
-> إذا كنت تبحث عن أدوات عملية تقلل الوقت وتزيد الاعتمادية—فهذه المجموعة لك.
+## 🚀 المميزات
+- هيكل مشروع منظم (Android, API, Examples, Docs, Scripts, Assets).
+- دعم أمثلة عملية بلغات متعددة (Python, JavaScript, Kotlin).
+- تكامل مع خدمات التخزين السحابي مثل AWS S3.
+- ملفات توثيق واضحة (README, CONTRIBUTING, TODO, ROADMAP).
 
-## ✨ المميزات
-- تخزين موثوق للمشاريع والملفات عبر AWS S3.
-- دعم العمل بلا إنترنت (Offline-first).
-- واجهات بسيطة وأداء سريع.
-- تصميم قابل للتوسع والتخصيص.
-- أمثلة جاهزة ونماذج تنفيذ.
+---
 
-## 🧰 التقنيات
-- Android (Kotlin)
-- ASP.NET Core API
-- AWS (S3, Lambda)
-- AJAX
-- Google Analytics
-
-## 📦 التثبيت
-
-### المتطلبات المسبقة
-- Git
-- Android Studio (اختياري لمن يملك حاسوب)
-- .NET SDK (لـ ASP.NET Core)
-- حساب AWS (اختياري للبداية، مطلوب لتكامل S3)
-
-### الخطوات
-```bash
-git clone https://github.com/nidalwatfa/Syria-Dev-Toolkit.git
-cd Syria-Dev-Toolkit
+## 📂 هيكل المشروع
