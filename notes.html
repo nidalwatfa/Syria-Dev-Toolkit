@@ -1,85 +1,78 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>📝 الملاحظات</title>
-  <link rel="manifest" href="manifest.json">
-  <style>
-    body {
-      font-family: system-ui, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 { margin-bottom: 20px; }
-    textarea {
-      width: 90%;
-      height: 200px;
-      padding: 10px;
-      border-radius: 8px;
-      border: none;
-      margin-bottom: 20px;
-    }
-    button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      background: #22c55e;
-      color: white;
-      cursor: pointer;
-    }
-    select {
-      margin-top: 20px;
-      padding: 8px;
-      border-radius: 6px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ملاحظات المشروع - Syria Dev Toolkit</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #28a745;
+            margin-top: 25px;
+        }
+        ul {
+            list-style-type: square;
+            padding-right: 20px;
+        }
+        .note-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fafafa;
+        }
+    </style>
 </head>
 <body>
-  <h1 id="pageTitle">📝 الملاحظات</h1>
+    <div class="container">
+        <h1>📑 ملاحظات مشروع Syria Dev Toolkit</h1>
 
-  <textarea id="notesArea" placeholder="اكتب ملاحظاتك هنا..."></textarea>
-  <br>
-  <button id="saveBtn">💾 حفظ الملاحظات</button>
+        <div class="note-item">
+            <h2>ملاحظة عامة (General Note)</h2>
+            <p>هذا الملف مخصص لتسجيل الملاحظات السريعة، الأفكار الجديدة، أو التحديثات التي لم تُضاف بعد إلى ملف `README.md`.</p>
+        </div>
 
-  <!-- اختيار اللغة -->
-  <select onchange="loadTranslations(this.value)">
-    <option value="ar">العربية</option>
-    <option value="ku">Kurdî</option>
-    <option value="en">English</option>
-  </select>
+        <div class="note-item">
+            <h2>الأفكار المقترحة للتطوير</h2>
+            <ul>
+                <li>إضافة قسم خاص بـ "أدوات بناء التطبيقات" (Build Tools) مثل Webpack أو Vite.</li>
+                <li>تحديث قائمة الموارد لتشمل دورات تدريبية متخصصة باللغة العربية.</li>
+                <li>مراجعة الروابط للتأكد من أنها تعمل بشكل سليم.</li>
+            </ul>
+        </div>
 
-  <script>
-    // تحميل الترجمة
-    async function loadTranslations(lang) {
-      const res = await fetch("translations.json");
-      const data = await res.json();
-      const t = data[lang] || data["ar"]; // افتراضي عربي
+        <div class="note-item">
+            <h2>مهام تحتاج إلى إنجاز (TODO)</h2>
+            <p>قبل الإصدار القادم:</p>
+            <ol>
+                <li>تحسين تنسيق صفحة الـ **CONTRIBUTING.md**.</li>
+                <li>إضافة مثال عملي لاستخدام إحدى الأدوات في المستودع.</li>
+                <li>تنقيح النصوص للتأكد من خلوها من الأخطاء الإملائية والنحوية.</li>
+            </ol>
+        </div>
 
-      document.getElementById("pageTitle").textContent = t.title_notes;
-      document.getElementById("notesArea").placeholder = t.title_notes;
-      document.getElementById("saveBtn").textContent = t.save_notes;
-    }
-
-    loadTranslations("ar");
-
-    const notesArea = document.getElementById("notesArea");
-
-    // تحميل الملاحظات من LocalStorage عند فتح الصفحة
-    window.onload = () => {
-      const savedNotes = localStorage.getItem("notes");
-      if (savedNotes) {
-        notesArea.value = savedNotes;
-      }
-    };
-
-    // حفظ الملاحظات في LocalStorage
-    document.getElementById("saveBtn").addEventListener("click", () => {
-      localStorage.setItem("notes", notesArea.value);
-      alert("✅ تم حفظ الملاحظات بنجاح!");
-    });
-  </script>
+    </div>
 </body>
 </html>
