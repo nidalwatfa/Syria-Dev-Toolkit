@@ -1,0 +1,7 @@
+<!-- res/values-ku/strings.xml -->
+<resources>
+    <string name="app_name">Toolkit</string>
+    <string name="welcome_message">Slav û bi xêr hatî!</string>
+    <string name="settings">Mîheng</string>
+    <string name="exit">Derkeve</string>
+</resources>
