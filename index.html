@@ -1,79 +1,55 @@
-
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🏠 الصفحة الرئيسية</title>
-  <link rel="manifest" href="manifest.json">
-  <style>
-    body {
-      font-family: system-ui, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-      margin: 0;
-      padding: 40px;
-      text-align: center;
-    }
-    h1 {
-      margin-bottom: 30px;
-    }
-    a {
-      display: block;
-      margin: 15px auto;
-      padding: 15px;
-      width: 60%;
-      background: #1e293b;
-      color: #e5e7eb;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 18px;
-      transition: background 0.3s;
-    }
-    a:hover {
-      background: #3b82f6;
-    }
-    select {
-      margin-top: 30px;
-      padding: 8px;
-      border-radius: 6px;
-    }
-  </style>
+  <title>i18n Example</title>
+  <script src="https://unpkg.com/i18next@21.6.16/dist/umd/i18next.min.js"></script>
 </head>
 <body>
-  <h1 id="pageTitle">🏠 الصفحة الرئيسية</h1>
-
-  <a id="notesLink" href="notes.html">📝 الملاحظات</a>
-  <a id="tasksLink" href="tasks.html">✅ المهام</a>
-  <a id="jsonLink" href="json-viewer.html">📂 عارض JSON</a>
-
-  <!-- اختيار اللغة -->
-  <select onchange="loadTranslations(this.value)">
-    <option value="ar">العربية</option>
-    <option value="ku">Kurdî</option>
-    <option value="en">English</option>
-  </select>
+  <h1 id="welcome"></h1>
+  <button onclick="changeLanguage('ar')">العربية</button>
+  <button onclick="changeLanguage('en')">English</button>
+  <button onclick="changeLanguage('ku')">Kurdî</button>
 
   <script>
-    // تحميل الترجمة
-    async function loadTranslations(lang) {
-      const res = await fetch("translations.json");
-      const data = await res.json();
-      const t = data[lang] || data["ar"]; // افتراضي عربي
+    // الموارد (النصوص المترجمة)
+    const resources = {
+      ar: {
+        translation: {
+          welcome_message: "مرحباً بك!",
+          settings: "الإعدادات"
+        }
+      },
+      en: {
+        translation: {
+          welcome_message: "Welcome!",
+          settings: "Settings"
+        }
+      },
+      ku: {
+        translation: {
+          welcome_message: "Slav û bi xêr hatî!",
+          settings: "Mîheng"
+        }
+      }
+    };
 
-      document.getElementById("pageTitle").textContent = t.title_home;
-      document.getElementById("notesLink").textContent = "📝 " + t.title_notes;
-      document.getElementById("tasksLink").textContent = "✅ " + t.title_tasks;
-      document.getElementById("jsonLink").textContent = "📂 " + t.title_json;
+    // تهيئة i18next
+    i18next.init({
+      lng: 'en', // اللغة الافتراضية
+      resources
+    }, function() {
+      updateContent();
+    });
+
+    // دالة لتحديث النصوص حسب اللغة
+    function updateContent() {
+      document.getElementById('welcome').innerText = i18next.t('welcome_message');
     }
 
-    // تحميل اللغة الافتراضية عند فتح الصفحة
-    loadTranslations("ar");
-
-    // تسجيل Service Worker لتفعيل PWA
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js")
-        .then(() => console.log("✅ Service Worker مسجل بنجاح"))
-        .catch((err) => console.error("⚠️ فشل التسجيل:", err));
+    // دالة لتغيير اللغة
+    function changeLanguage(lang) {
+      i18next.changeLanguage(lang, updateContent);
     }
   </script>
 </body>
