@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Toolkit</string>
+    <string name="welcome_message">Slav û bi xêr hatî!</string>
+    <string name="login">Têkeve</string>
+    <string name="logout">Derkeve</string>
+    <string name="settings">Mîheng</string>
+    <string name="language">Ziman</string>
+    <string name="save">Tomar bike</string>
+    <string name="cancel">Betal bike</string>
+    <string name="exit">Derkeve</string>
+</resources>
