@@ -1,1 +1,27 @@
+PULL_REQUEST_TMPLATE.md
+name: طلب إضافة أو تعديل (Feature/Update Request)
+about: تقديم طلب لإضافة موارد جديدة أو تعديل موارد قائمة.
+title: "[FEAT] وصف مختصر لإضافة الموارد الجديدة"
+labels: enhancement
+assignees: nidalwatfa
+---
 
+## ما الهدف من طلب السحب هذا؟ (What is the purpose of this PR?)
+
+الرجاء وصف التغييرات التي قمت بها.
+
+- [ ] إضافة مصادر جديدة (Adding new resources)
+- [ ] تحديث/تعديل معلومات قائمة (Updating existing information)
+- [ ] تصحيح خطأ إملائي أو تنسيقي (Fixing a typo or formatting)
+- [ ] إصلاح رابط مكسور (Fixing a broken link)
+
+## قائمة التغييرات (Checklist)
+
+الرجاء وضع علامة `[x]` عند الانتهاء من كل نقطة.
+
+- [ ] لقد راجعت ملف [CONTRIBUTING.md](CONTRIBUTING.md) وتابعت الإرشادات.
+- [ ] لقد تأكدت من أن الروابط المضافة حديثًا تعمل.
+- [ ] لقد تأكدت من أن التنسيق في ملف `README.md` صحيح (استخدام الـ `* [Title] - Description`).
+- [ ] تم تحديث ملفات أخرى إذا لزم الأمر (مثل `notes.html` أو `CHANGELOG.md`).
+
+## ملاحظات إضافية
