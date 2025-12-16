@@ -1,82 +1,153 @@
 # 🇸🇾 Syria Dev Toolkit
 
-مجموعة شاملة ومنسقة من المصادر، الأدوات، ومسارات التعلم المخصصة للمطورين والمهندسين السوريين حول العالم. يهدف هذا المستودع إلى تجميع كل ما هو ضروري لتسهيل رحلة المطور السوري في مجالات التكنولوجيا المختلفة.
-https://nidalwatfa.github.io/Syria-Dev-Toolkit/
----
+> ⚠️ ملاحظة هامة: جميع مشاريعي على GitHub يتم تنفيذها بالكامل من خلال هاتفي المحمول باستخدام تطبيق Termux، وذلك بسبب عدم امتلاكي حاسوب شخصي. رغم هذا التحدي، أواصل التعلم والبناء خطوة بخطوة، وأعتبر هذا المشروع دليلًا على أن الشغف والإصرار أقوى من أي عائق مادي.
 
-## 📋 جدول المحتويات (Table of Contents)
-
-1. [🚀 البدء السريع](#-البدء-السريع)
-2. [💻 أدوات التطوير الأساسية](#-أدوات-التطوير-الأساسية)
-    * [لغات البرمجة (Languages)](#لغات-البرمجة-languages)
-    * [البيانات والذكاء الاصطناعي (Data-and-AI)](#البيانات-والذكاء-الاصطناعي-data-and-ai)
-3. [📚 مسارات التعلم والموارد التعليمية](#-مسارات-التعلم-والموارد-التعليمية)
-4. [📢 المجتمعات والمجموعات](#-المجتمعات-والمجموعات)
-5. [🤝 المساهمة والدعم](#-المساهمة-والدعم)
-6. [⚖️ الترخيص](#️-الترخيص)
+أداة تطوير سورية مفتوحة المصدر تهدف إلى تمكين المطورين من بناء تطبيقات عربية وكردية ودولية بسهولة، مع التركيز على البساطة، التجريب، والتعلم الذاتي.
 
 ---
 
-## 🚀 البدء السريع (Getting Started)
+## 🌍 دعم اللغات
 
-هذا المستودع هو دليل مرجعي (Reference Guide). لاستخدامه، ما عليك سوى تصفح الأقسام أدناه والانتقال إلى المصدر الذي يهمك.
+يدعم المشروع حاليًا أربع لغات رئيسية:
 
----
+- العربية 🇸🇾  
+- الكردية 🏔️  
+- الإنجليزية 🇬🇧  
+- الفرنسية 🇫🇷  
 
-## 💻 أدوات التطوير الأساسية
-
-قائمة مختارة بأفضل الأدوات التي يحتاجها كل مطور سوري في مسيرته، مع التركيز على المصادر المجانية أو مفتوحة المصدر.
-
-### لغات البرمجة (Languages)
-
-* **[Visual Studio Code (VS Code)](https://code.visualstudio.com/)** - محرر أكواد مجاني ومفتوح المصدر من Microsoft. هو الأداة الأكثر شيوعاً في مجتمع المطورين عالمياً، ويدعم عشرات اللغات والإضافات.
-* **[Git & GitHub](https://github.com/)** - نظام التحكم بالإصدارات (Version Control) الأساسي لكل مطور. يفضل تعلم أساسيات Git واستخدام GitHub لاستضافة المشاريع مفتوحة المصدر والتعاون.
-* **[Postman](https://www.postman.com/pricing/)** - أداة أساسية لاختبار واجهات برمجة التطبيقات (APIs). يوفر خطة مجانية كافية للمطورين الأفراد.
-* **[Jupyter Notebook / JupyterLab](https://jupyter.org/)** - بيئة تفاعلية ممتازة لتطوير ونشر المستندات التي تحتوي على أكواد حية (Python, R, إلخ)، معادلات، ونصوص سردية.
-
-### البيانات والذكاء الاصطناعي (Data-and-AI)
-
-* **[Google Colaboratory (Colab)](https://colab.research.google.com/)** - بيئة Jupyter Notebooks مجانية تُشغّل بالكامل في السحابة وتوفر إمكانية الوصول إلى وحدات معالجة الرسوميات (GPUs) مجاناً للتعلم والتدريب الخفيف.
-* **[Kaggle](https://www.kaggle.com/)** - منصة عالمية لمسابقات البيانات ومشاريع التعلم الآلي. مصدر ممتاز لمجموعات البيانات (Datasets) والدورات التعليمية.
-* **[PyTorch](https://pytorch.org/)** - واحدة من أهم مكتبات التعلم الآلي والتعلم العميق مفتوحة المصدر والأكثر استخداماً عالمياً.
-* **[SQL (PostgreSQL/MySQL)](https://www.postgresql.org/)** - لغة الاستعلام المهيكلة، هي الأساس للعمل مع قواعد البيانات.
+### الميزات المتاحة:
+- **عد الكلمات** لجميع اللغات.  
+- **إزالة التشكيل** (للعربية فقط).  
 
 ---
 
-## 📚 مسارات التعلم والموارد التعليمية
+## 🚀 البداية السريعة (تشغيل على Termux)
 
-روابط لدورات تعليمية، كتب إلكترونية، ومقالات للمساعدة في بناء المهارات من الصفر حتى الاحتراف.
+### المتطلبات:
+- تطبيق [Termux](https://play.google.com/store/apps/details?id=com.termux)  
+- Python مثبت داخل Termux  
 
-* **[freeCodeCamp](https://www.freecodecamp.org/)** - منظمة غير ربحية توفر عشرات الشهادات والدورات التفاعلية المجانية بالكامل في تطوير الويب والبيانات.
-* **[The Odin Project](https://www.theodinproject.com/)** - منهج مجاني ومفتوح المصدر لتعلم تطوير الويب بالكامل (Full-Stack Web Development) من خلال مشاريع عملية.
-* **[CS50x - مقدمة في علوم الحاسوب (Harvard)](https://pll.harvard.edu/course/cs50-introduction-computer-science)** - دورة تمهيدية مجانية ومتاحة بالكامل على edX، تعتبر نقطة انطلاق مثالية لأي شخص يريد تعلم أسس علوم الحاسوب.
-* **[Coursera / EdX](https://www.coursera.org/browse)** - منصات تقدم دورات جامعية مجانية للمراجعة (Audit) في أغلب التخصصات من جامعات عالمية.
+### خطوات التشغيل:
+
+```bash
+# تثبيت Python (إذا لم يكن مثبتًا)
+pkg install python
+
+# تثبيت Git (لرفع المشروع إلى GitHub)
+pkg install git
+
+# إنشاء مجلد المشروع
+mkdir -p ~/Syria-Dev-Toolkit/backend
+cd ~/Syria-Dev-Toolkit/backend
+
+# إنشاء ملف main.py
+nano main.py
+```
+
+ثم الصق الكود التالي داخل nano:
+
+```python
+from flask import Flask, request, render_template_string
+import re
+
+app = Flask(__name__)
+
+HTML_FORM = """
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>معالجة النصوص متعددة اللغات</title>
+</head>
+<body style="direction: rtl; font-family: sans-serif;">
+    <h2>أدخل نصًا:</h2>
+    <form method="post">
+        <label>اختر اللغة:</label>
+        <select name="lang">
+            <option value="arabic">العربية</option>
+            <option value="kurdish">الكردية</option>
+            <option value="english">الإنجليزية</option>
+            <option value="french">الفرنسية</option>
+        </select><br><br>
+        <textarea name="text" rows="6" cols="40"></textarea><br><br>
+        <input type="submit" name="action" value="عد الكلمات">
+        <input type="submit" name="action" value="إزالة التشكيل (للعربية فقط)">
+    </form>
+    {% if result is not none %}
+        <h3>النتيجة:</h3>
+        <p>{{ result }}</p>
+    {% endif %}
+</body>
+</html>
+"""
+
+def remove_tashkeel(text):
+    return re.sub(r'[\u064B-\u0652]', '', text)
+
+@app.route("/", methods=["GET", "POST"])
+def home():
+    result = None
+    if request.method == "POST":
+        text = request.form.get("text", "")
+        action = request.form.get("action")
+        lang = request.form.get("lang")
+
+        if action == "عد الكلمات":
+            words = text.strip().split()
+            result = f"عدد الكلمات ({lang}): {len(words)}"
+        elif action == "إزالة التشكيل (للعربية فقط)" and lang == "arabic":
+            result = remove_tashkeel(text)
+        else:
+            result = "هذه الميزة غير متاحة لهذه اللغة."
+    return render_template_string(HTML_FORM, result=result)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
+```
 
 ---
 
-## 📢 المجتمعات والمجموعات
+### ملف المتطلبات
+```bash
+echo flask > requirements.txt
+```
 
-قائمة بصفحات المجموعات والمجتمعات التقنية السورية النشطة على الإنترنت (Discord, Telegram, Facebook groups, إلخ).
+### تثبيت Flask وتشغيل التطبيق
+```bash
+pip install -r requirements.txt
+python main.py
+```
 
-* **[مجموعة مطوري سوريا (Syrian Developers Group)]** - رابط المجموعة (المنصة: Facebook). **ضع الرابط الفعلي هنا**
-* **[مجتمع مطوري الذكاء الاصطناعي العربي (Arab AI Developers)]** - رابط قناة/سيرفر الديسكورد (المنصة: Discord). **ضع الرابط الفعلي هنا**
-* **[مجموعة مخصصة للعمل الحر (Freelancing) للمطورين العرب]** - رابط المجموعة (المنصة: Telegram). **ضع الرابط الفعلي هنا**
-
----
-
-## 🤝 المساهمة والدعم (Contributing)
-
-نرحب بكافة المساهمات التي تثري هذا المستودع. للمساهمة، يرجى قراءة ملف [CONTRIBUTING.md](CONTRIBUTING.md) واتباع الخطوات التالية:
-
-1.  قم بعمل تفرع (Fork) للمستودع.
-2.  قم بإنشاء فرع جديد (Branch) يحمل اسم الميزة (مثلاً: `feature/add-new-tools`).
-3.  أضف تعديلاتك.
-4.  قم بتقديم طلب سحب (Pull Request).
-
-في حال وجود أي سلوك غير لائق أو انتهاك لقواعد السلوك، يرجى مراجعة [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+ثم افتح المتصفح على:
+```
+http://127.0.0.1:5000
+```
 
 ---
 
-## ⚖️ الترخيص (License)
+## 🎯 الهدف من المشروع
+- دعم المطورين العرب والكرد وغيرهم من خلال أدوات بسيطة لمعالجة النصوص.  
+- توفير واجهة متعددة اللغات (عربية، كردية، إنجليزية، فرنسية).  
+- بناء أساس يمكن توسيعه لاحقًا ليشمل لغات إضافية.  
+- إثبات أن البرمجة ممكنة حتى من الهاتف المحمول فقط.  
 
-هذا المشروع مرخص بموجب ترخيص MIT. للاطلاع على التفاصيل، يرجى مراجعة ملف [LICENSE](LICENSE).
+---
+
+## 📦 هيكل المشروع
+
+```
+Syria-Dev-Toolkit/
+└── backend/
+    ├── main.py
+    └── requirements.txt
+```
+
+---
+
+## 🤝 المساهمة
+نرحب بأي مساهمة أو اقتراح! فقط افتح "Issue" أو أرسل "Pull Request".
+
+---
+
+## 📜 الرخصة
+MIT License – حرية كاملة في الاستخدام والتعديل.
