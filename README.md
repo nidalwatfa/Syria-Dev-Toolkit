@@ -3,8 +3,7 @@
 > ⚠️ ملاحظة هامة: جميع مشاريعي على GitHub يتم تنفيذها بالكامل من خلال هاتفي المحمول باستخدام تطبيق Termux، وذلك بسبب عدم امتلاكي حاسوب شخصي. رغم هذا التحدي، أواصل التعلم والبناء خطوة بخطوة، وأعتبر هذا المشروع دليلًا على أن الشغف والإصرار أقوى من أي عائق مادي.
 
 أداة تطوير سورية مفتوحة المصدر تهدف إلى تمكين المطورين من بناء تطبيقات عربية وكردية ودولية بسهولة، مع التركيز على البساطة، التجريب، والتعلم الذاتي.
-Nidal Watfa | AI Researcher & Developer
-Dedicated researcher specializing in Deep Learning and Medical Imaging. Proficient in Python and Computer Vision, with a track record of developing open-source solutions for complex data challenges. My work bridges the gap between academic research (ORCID) and practical implementation (GitHub).
+
 
 ---
 
